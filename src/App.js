@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Link as MuiLink, useScrollTrigger } from "@mui/material"
+import Layout from "./Layout"
+import NotFound from "./Sites/404"
+import Marko from "./Sites/Index"
+import Info from "./Sites/Info"
 
-function App() {
+import CookieConsent from 'react-cookie-consent'
+import { hotjar } from 'react-hotjar'
+
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+
+const HOTJAR_ID = "3204204"
+
+const App = () => {
+  const [cookiesAccepted, setCookies] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout cookiesAccepted={cookiesAccepted} HOTJAR_ID={HOTJAR_ID} />}>
+            <Route index element={<Marko />} />
+            <Route path="info" element={<Info />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+    </BrowserRouter>
+
+    <CookieConsent onAccept={() => setCookies(true)}>
+      Käytämme 🍪keksejä🍪, eli evästeitä, jotta sinä voisit tehdä parempia esseitä. Lue lisää <MuiLink href="https://marko-generator.herokuapp.com/privacy">tietosuojakäytännöstämme.</MuiLink>
+    </CookieConsent>
+    
+
+    </>
+  )
 }
 
-export default App;
+
+
+export default App
