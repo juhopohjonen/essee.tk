@@ -29,7 +29,7 @@ const App = () => {
     </BrowserRouter>
 
     <CookieConsent onAccept={() => setCookies(true)}>
-      Käytämme 🍪keksejä🍪, eli evästeitä, jotta sinä voisit tehdä parempia esseitä. Lue lisää <MuiLink href="https://marko-generator.herokuapp.com/privacy">tietosuojakäytännöstämme.</MuiLink>
+      Käytämme 🍪keksejä🍪, eli evästeitä, jotta sinä voisit tehdä parempia esseitä. Lue lisää <MuiLink href="https://marko-generator.herokuapp.com/static/privacy.txt">tietosuojakäytännöstämme.</MuiLink>
     </CookieConsent>
     
 

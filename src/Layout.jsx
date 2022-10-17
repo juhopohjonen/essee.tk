@@ -46,7 +46,7 @@ const Navbar = () => {
                         edge='start'
                         color='inherit'
                         aria-label='menu'
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 1 }}
                         onClick={(e) => setAnchor(e.currentTarget)}
                         aria-controls="menu"
                         aria-haspopup="true"

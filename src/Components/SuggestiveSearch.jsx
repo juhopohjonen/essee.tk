@@ -23,8 +23,6 @@ const Search = (props) => {
         }
     }, [query])
 
-    console.log(props)
-
     return (
         <Box>
             <Autocomplete
@@ -49,7 +47,7 @@ const Search = (props) => {
                     />
                 )}
             />
-            <Button onClick={() => props.setval(chosen)} sx={{ mt: 1 }} variant='outlined' color='primary'>Luo teksti</Button>            
+            <Button disabled={!query} onClick={() => props.setval(chosen)} sx={{ mt: 1 }} variant='outlined' color='primary'>Luo teksti</Button>            
         </Box>
     )
 }
