@@ -1,15 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Link as MuiLink, useScrollTrigger } from "@mui/material"
+import { Link as MuiLink } from "@mui/material"
 import Layout from "./Layout"
 import NotFound from "./Sites/404"
 import Marko from "./Sites/Index"
 import Info from "./Sites/Info"
 
 import CookieConsent from 'react-cookie-consent'
-import { hotjar } from 'react-hotjar'
 
-import { useLocation } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const HOTJAR_ID = "3204204"
 
@@ -24,6 +22,7 @@ const App = () => {
             <Route index element={<Marko />} />
             <Route path="info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
+            <Route path='essee/:name' element={<p>Essee</p>} />
           </Route>
         </Routes>
     </BrowserRouter>

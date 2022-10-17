@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 let defaultValue = 'Essee.tk'
-let defaultDescValue = 'Etkö jaksa tehdä opettajan antamaa essee-kirjoitusta? Ei hätää! Nyt sinun ei tarvitse enää kirjoitella turhaan. Kirjoitamme puolestasi.'
+let defaultDescValue = 'Etkö jaksa tehdä opettajan antamaa essee-kirjoitusta? Ei hätää! Nyt sinun ei tarvitse enää kirjoitella tekstejä turhaan. Kirjoitamme puolestasi.'
 
 let value = defaultValue
 

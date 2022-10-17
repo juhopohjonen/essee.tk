@@ -1,7 +1,6 @@
 import {  Typography, Link as MuiLink } from "@mui/material"
 import { Box } from "@mui/system"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import Results from "../Components/Results"
 import Search from "../Components/SuggestiveSearch"
 
