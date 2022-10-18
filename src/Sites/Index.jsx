@@ -42,7 +42,8 @@ const Esittely = () => {
             </Typography>
             <Typography variant='h4' component='h2'>Miten se toimii?</Typography>
             <Typography paragraph>Niilo22:n sanoja lainaten: <MuiLink href='https://www.youtube.com/watch?v=jA6w1lE45b4'><i>"Se on vain korkeempaa matematiikkaa, jotka kaikki ei ymmärrä."</i></MuiLink></Typography>
-            <Typography>Essee.tk käyttää tietoina ja tietojen hakijana <MuiLink href="https://fi.wikipedia.org/wiki/Wikipedia:Etusivu">suomenkielistä Wikipediaa, joka on käytettävissä Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)  -lisenssillä.</MuiLink>
+            <Typography gutterBottom>Essee.tk käyttää tietoina ja tietojen hakijana <MuiLink href="https://fi.wikipedia.org/wiki/Wikipedia:Etusivu">suomenkielistä Wikipediaa, joka on käytettävissä Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)  -lisenssillä.</MuiLink>
+        
         </Typography>
 
         </Box>

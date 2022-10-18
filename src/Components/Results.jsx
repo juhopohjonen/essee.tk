@@ -110,7 +110,7 @@ const ImageView = ({ q }) => {
 }
 
 const ResultsSkeleton = () => (
-    <div style={{ width: 500, marginTop: 10 }}>
+    <div style={{ width: 500, marginTop: 10, maxWidth: '95%' }}>
         <Skeleton />
         <Skeleton />
         <Skeleton />

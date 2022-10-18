@@ -16,6 +16,10 @@ const getImageURLs = async (query) => {
     return request
 }
 
+const parseWiki = async (query) => {
+    const URL = BASE_URL + `?action=parse&page=${query}&format=json&origin=*`
+    const request = await axios.get(URL)
+    return request
+}
 
-
-export { getQueryContents, getImageURLs }
+export { getQueryContents, getImageURLs, parseWiki }

@@ -8,6 +8,7 @@ import Info from "./Sites/Info"
 import CookieConsent from 'react-cookie-consent'
 
 import { useState } from "react"
+import Essay from "./Sites/Essay"
 
 const HOTJAR_ID = "3204204"
 
@@ -22,13 +23,13 @@ const App = () => {
             <Route index element={<Marko />} />
             <Route path="info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
-            <Route path='essee/:name' element={<p>Essee</p>} />
+            <Route path='/:name' element={<Essay />} />
           </Route>
         </Routes>
     </BrowserRouter>
 
     <CookieConsent onAccept={() => setCookies(true)}>
-      Käytämme 🍪keksejä🍪, eli evästeitä, jotta sinä voisit tehdä parempia esseitä. Lue lisää <MuiLink href="https://marko-generator.herokuapp.com/static/privacy.txt">tietosuojakäytännöstämme.</MuiLink>
+      Käytämme 🍪 keksejä 🍪, eli evästeitä, jotta sinä voisit tehdä parempia esseitä. Lue lisää <MuiLink href="https://marko-generator.herokuapp.com/static/privacy.txt">tietosuojakäytännöstämme.</MuiLink>
     </CookieConsent>
     
 
