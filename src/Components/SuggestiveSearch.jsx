@@ -1,6 +1,6 @@
-import { Autocomplete, Button, TextField } from "@mui/material"
+import { Autocomplete, Button, CircularProgress, TextField } from "@mui/material"
 import { Box } from "@mui/system"
-import { useEffect } from "react"
+import { Fragment, useEffect } from "react"
 import { useState } from "react"
 import { getQueryContents } from "../Services/WikiService"
 
@@ -9,12 +9,16 @@ const Search = (props) => {
     const [options, setOptions] = useState([])
 
     const [chosen, setChosen] = useState('')
-    console.log(chosen)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         const updateOptions = (query) => {
+            setLoading(true)
             getQueryContents(query)
-                .then(res => setOptions(res.data.query.search))
+                .then(res => {
+                    setLoading(false)
+                    setOptions(res.data.query.search)
+                })
                 .catch(err => alert('error'))
         }
 
@@ -26,7 +30,7 @@ const Search = (props) => {
     return (
         <Box>
             <Autocomplete
-
+                noOptionsText='Ei hakutuloksia!'
                 sx={props.sx}
                 id="articleselect"
                 disableClearable
@@ -41,6 +45,11 @@ const Search = (props) => {
                       InputProps={{
                         ...params.InputProps,
                         type: 'search',
+                        endAdornment: (
+                            <Fragment>
+                                {loading ? <CircularProgress color='inherit' size={20} /> : null}
+                            </Fragment>
+                        )
                       }}
                       
                       onChange={(e) => setQuery(e.target.value)}
