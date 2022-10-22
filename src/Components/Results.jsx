@@ -1,8 +1,8 @@
-import { Box, Button, Card, CardActions, CardContent, Skeleton, Typography, Link as MuiLink, CardMedia } from "@mui/material"
+import { Box, Button, Card, CardActions, CardContent, Skeleton, Typography, Link as MuiLink, CardMedia, CircularProgress as Spinner } from "@mui/material"
 import { useEffect } from "react"
 import { useState } from "react"
 import { getByTitle } from "../Services/TextService"
-import { getImageURLs } from "../Services/WikiService"
+import { getExtlinks, getImageURLs } from "../Services/WikiService"
 
 const Results = ({ query }) => {
     const [text, setText] = useState(null)
@@ -44,6 +44,8 @@ const Results = ({ query }) => {
                     </>
                 ))}
 
+                <Citations q={query} />
+
                 </CardContent>
                 <CardActions>
                     <Button component={MuiLink} href={wikipediaURL} variant='outlined' color='secondary'>Katso lähde</Button>
@@ -54,6 +56,46 @@ const Results = ({ query }) => {
 
 
         </Box>
+    )
+}
+
+const Citations = ({ q }) => {
+    const [extlinks, setLinks] = useState(null)
+    useEffect(() => {
+        getExtlinks(q)
+            .then(req => {
+                const { pages } = req.data.query
+                const page = Object.values(pages)[0]
+                setLinks(page.extlinks)
+            })
+            .catch (err => {
+                console.error(err)
+                alert('Virhe lähteiden hakemisessa!')
+            })
+    }, [q])
+
+    // do not show the heading if there is no
+    // content
+    if (extlinks && extlinks.length === 0) {
+        return null
+    }
+
+    return (
+        <>
+            <Typography gutterBottom variant='h5' component='h6' sx={{ mt: 4, mb: 1 }}>Lähteet</Typography>
+            {
+                extlinks 
+                    ? extlinks.map((link, index) => {
+                        const url = Object.values(link)[0]
+                        const date = new Date()
+
+                        return (
+                            <Typography key={index} paragraph><MuiLink href={url}>{url}</MuiLink>. Verkkosivu. Viitattu {date.toLocaleDateString()}.</Typography>
+                        )
+                    })
+                    : <Spinner />
+            }
+        </>
     )
 }
 
