@@ -1,4 +1,4 @@
-import { Skeleton, Typography } from "@mui/material"
+import { Skeleton, Typography, Link as MuiLink } from "@mui/material"
 import { Box } from "@mui/system"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -74,6 +74,9 @@ const Essay = () => {
 
             <Search setval={changeVal} />
             <br />
+
+            <Typography gutterBottom>Essee.tk käyttää tietolähteenä ja tietojen hakijana <MuiLink href="https://fi.wikipedia.org/wiki/Wikipedia:Etusivu">suomenkielistä Wikipediaa, joka on käytettävissä Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)  -lisenssillä.</MuiLink></Typography>
+
         </Box>
     )
 }
