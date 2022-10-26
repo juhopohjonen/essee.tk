@@ -16,6 +16,16 @@ const titleRoutings = [
         url: '/info',
         title: 'Tietoa',
         description: 'Mikä ihme Essee.tk on? No, kärjistetysti se on työkalu, jonka avulla voit tehdä esseitä ilman, että kirjoitat niitä. Kurkkaa lisää!'
+    },
+    {
+        url: '/kielet',
+        title: 'Kielten essee',
+        description: 'Essee.tk:n avulla voi myöskin luoda mm. englanninkielisiä esseitä ja kirjoitelmia. Essee.tk on työkalu, jonka avulla voit saada parempia numeroita. Kokeile ilmaiseksi!'
+    },
+    {
+        url: '/kielet/parempia-arvosanoja',
+        title: 'Parempia arvosanoja kielistä',
+        description: 'Tiedätkö, miten voisit saada parempia arvosanoja kielistä, kuten englannista, ruotsista tai saksasta? Listasimme parhaimmat vinkit sivullemme. Tervetuloa lukemaan!'
     }
 ]
 

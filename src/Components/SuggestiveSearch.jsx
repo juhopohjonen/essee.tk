@@ -11,10 +11,14 @@ const Search = (props) => {
     const [chosen, setChosen] = useState('')
     const [loading, setLoading] = useState(false)
 
+    const language = props.lang
+        ? props.lang
+        : 'fi'
+
     useEffect(() => {
         const updateOptions = (query) => {
             setLoading(true)
-            getQueryContents(query)
+            getQueryContents(query, language)
                 .then(res => {
                     setLoading(false)
                     setOptions(res.data.query.search)
@@ -25,7 +29,7 @@ const Search = (props) => {
         if (query.length !== 0) {
             updateOptions(query)
         }
-    }, [query])
+    }, [query, language])
 
     return (
         <Box>

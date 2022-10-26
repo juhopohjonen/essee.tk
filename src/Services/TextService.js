@@ -1,10 +1,20 @@
 import axios from "axios"
 
-const MARKO_API = 'https://marko-generator.herokuapp.com/api/marko/'
+const isDevelopment = process.env.NODE_ENV === 'development'
 
-const getByTitle = (title) => {
+
+const MARKO_API = 
+    isDevelopment 
+        ? 'http://localhost:8000/api/marko/'
+        : 'https://marko-generator.herokuapp.com/api/marko/'
+
+console.log(MARKO_API)
+
+const getByTitle = (title, lang='fi') => {
     const URL = MARKO_API + title
-    const req = axios.get(URL)
+    const req = axios.get(URL, { params: {
+        lang
+    } })
     return req
 }
 

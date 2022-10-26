@@ -20,7 +20,7 @@ const Layout = ({ HOTJAR_ID, cookiesAccepted }) => {
     return (
         <ThemeProvider theme={theme}>
 
-            { cookiesAccepted ? <InitHotjar HOTJAR_ID={HOTJAR_ID} /> : null }
+            { cookiesAccepted && HOTJAR_ID ? <InitHotjar HOTJAR_ID={HOTJAR_ID} /> : null }
 
             <CssBaseline />
             <Navbar />
@@ -70,6 +70,7 @@ const Navbar = () => {
                     >
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/'>Etusivu</MenuItem>
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/info'>Tietoa</MenuItem>
+                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/kielet'>Kielten essee</MenuItem>
 
                     </Menu>
                     <Box sx={{ flexGrow: 1 }} as={Link} to='/'>

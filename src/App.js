@@ -9,6 +9,8 @@ import CookieConsent from 'react-cookie-consent'
 
 import { useState } from "react"
 import Essay from "./Sites/Essay"
+import EngIndex from "./Sites/OtherLanguages/OtherIndex"
+import BetterGrades from "./Sites/OtherLanguages/BetterGrades"
 
 const HOTJAR_ID = "3204204"
 
@@ -24,6 +26,11 @@ const App = () => {
             <Route path="info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
             <Route path='/:name' element={<Essay />} />
+
+            <Route path="kielet">
+              <Route index element={<EngIndex />} />
+              <Route path="parempia-arvosanoja" element={<BetterGrades />} />
+            </Route>
           </Route>
         </Routes>
     </BrowserRouter>
