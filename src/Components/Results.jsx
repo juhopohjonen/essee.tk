@@ -30,7 +30,7 @@ const Results = ({ query, lang='fi' }) => {
         return <Typography sx={{ mt: 0.5 }} paragraph>Valitettavasti emme pystyneet tekemään tästä aiheesta esseetä 😰😰😰</Typography>
     }
 
-    const wikipediaURL = `https://fi.wikipedia.org/wiki/${query}`
+    const wikipediaURL = `https://${lang}.wikipedia.org/wiki/${query}`
 
     
     return (
@@ -101,7 +101,7 @@ const Citations = ({ q, lang, citationTitle, postfix }) => {
                         const date = new Date()
 
                         return (
-                            <Typography key={index} paragraph><MuiLink href={url}>{url}</MuiLink>. {postfix} {date.toLocaleDateString()}.</Typography>
+                            <Typography key={date + Math.random()} paragraph><MuiLink href={url}>{url}</MuiLink>. {postfix} {date.toLocaleDateString()}.</Typography>
                         )
                     })
                     : <Spinner />
@@ -191,6 +191,14 @@ const getTitleByLang = (lang='fi') => {
 
             
             getImageText: (dest) => `Image about ${dest}`,
+        },
+        {
+            code: 'sv',
+            essayTitle: 'Uppsats om ',
+            citationTitle: 'Referenser',
+            licence: 'licensierad under ',
+            citationPostfix: 'Webbsida. Hänvisas till ',
+            getImageText: (dest) => `Bild på ${dest}`
         }
     ]
 

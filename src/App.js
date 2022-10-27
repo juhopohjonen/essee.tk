@@ -11,6 +11,7 @@ import { useState } from "react"
 import Essay from "./Sites/Essay"
 import EngIndex from "./Sites/OtherLanguages/OtherIndex"
 import BetterGrades from "./Sites/OtherLanguages/BetterGrades"
+import Englanti from "./Sites/OtherLanguages/Englanti"
 
 const HOTJAR_ID = "3204204"
 
@@ -29,6 +30,8 @@ const App = () => {
 
             <Route path="kielet">
               <Route index element={<EngIndex />} />
+              <Route path='englanti' element={<Englanti />} />
+
               <Route path="parempia-arvosanoja" element={<BetterGrades />} />
             </Route>
           </Route>

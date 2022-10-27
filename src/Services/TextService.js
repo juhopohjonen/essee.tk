@@ -3,12 +3,13 @@ import axios from "axios"
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 
-const MARKO_API = 
+const BASE_API = 
     isDevelopment 
-        ? 'http://localhost:8000/api/marko/'
-        : 'https://marko-generator.herokuapp.com/api/marko/'
+        ? 'http://localhost:8000/'
+        : 'https://marko-generator.herokuapp.com/'
 
-console.log(MARKO_API)
+const MARKO_API = BASE_API + 'api/marko/'
+const WIKI_API = BASE_API + 'api/wiki/'
 
 const getByTitle = (title, lang='fi') => {
     const URL = MARKO_API + title
@@ -18,4 +19,6 @@ const getByTitle = (title, lang='fi') => {
     return req
 }
 
-export { getByTitle }
+const getPossibleWikis = async () => await axios.get(WIKI_API)
+
+export { getByTitle, getPossibleWikis }

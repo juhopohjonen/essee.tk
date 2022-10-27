@@ -23,8 +23,11 @@ const Search = (props) => {
                     setLoading(false)
                     setOptions(res.data.query.search)
                 })
-                .catch(err => alert('error'))
-        }
+                .catch(err => 
+                {
+                    alert('Virhe hakutulosten lataamisessa!')
+                })
+            }
 
         if (query.length !== 0) {
             updateOptions(query)
