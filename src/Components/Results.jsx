@@ -127,8 +127,6 @@ const ImageView = ({ q, title }) => {
 
     }, [q])
 
-    console.log('ir', imageResp)
-
 
     if (!imageResp) {
         return null

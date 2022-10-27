@@ -26,6 +26,11 @@ const titleRoutings = [
         url: '/kielet/parempia-arvosanoja',
         title: 'Parempia arvosanoja kielistä',
         description: 'Tiedätkö, miten voisit saada parempia arvosanoja kielistä, kuten englannista, ruotsista tai saksasta? Listasimme parhaimmat vinkit sivullemme. Tervetuloa lukemaan!'
+    },
+    {
+        url: '/kielet/englanti',
+        title: 'Englanninkielinen essee',
+        description: 'Onko mielessäsi, miten saada parempia numeroita englannista? Essee.tk tarjoaa mahdollisuuden mm. englanninkielisten esseiden luomiseen. Testaa sitä!'
     }
 ]
 
