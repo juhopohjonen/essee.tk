@@ -10,6 +10,8 @@ const OtherLangSearch = () => {
     const [lang, setLang] = useState(null)
     const [value, setValue] = useState(null)
 
+    const [stateSize, setState] = useState(null)
+
 
     if (!lang)
         return (
@@ -32,9 +34,9 @@ const OtherLangSearch = () => {
                 }} variant='outlined' color='error'>Takaisin</Button>
             </Typography>
             <Box>
-                <Search lang={lang} setval={setValue} />
+                <Search setState={setState} lang={lang} setval={setValue} />
                 {
-                    value ? <Results lang={lang} query={value} /> : null
+                    value ? <Results accr={stateSize} lang={lang} query={value} /> : null
                 }
             </Box>
 

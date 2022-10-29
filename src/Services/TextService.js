@@ -8,13 +8,16 @@ const BASE_API =
         ? 'http://localhost:8000/'
         : 'https://marko-generator.herokuapp.com/'
 
+console.log(BASE_API)
+
 const MARKO_API = BASE_API + 'api/marko/'
 const WIKI_API = BASE_API + 'api/wiki/'
 
-const getByTitle = (title, lang='fi') => {
+const getByTitle = (title, lang='fi', accr) => {
     const URL = MARKO_API + title
     const req = axios.get(URL, { params: {
-        lang
+        lang,
+        accuracy: accr
     } })
     return req
 }

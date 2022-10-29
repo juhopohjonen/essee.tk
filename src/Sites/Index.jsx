@@ -10,18 +10,18 @@ import WikiAttr from "../Components/WikiAttr"
 
 const Marko = () => {
     const [value, setValue] = useState(null)
-
+    const [stateSize, setState] = useState(null)
 
     return (
         <Box>
             <Typography sx={{ mt: 3 }} variant='h3' component='h1'>Essee.tk - Ratkaisu ongelmiisi</Typography>
             <Typography sx={{ mb: 3 }} variant='h6' component='h2'>Pakottaako opettajasi kirjoittamaan esseitä? Ei enää ajanhukkaa. Tee esseesi, kirjoitelmasi jne. tällä työkalulla.</Typography>
 
-            <Search setval={setValue} sx={{ mt: 2, width: 500, maxWidth: '95%' }} />
+            <Search setState={setState} setval={setValue} sx={{ mt: 2, width: 500, maxWidth: '95%' }} />
 
             { 
                 value 
-                    ? <Results query={value} />
+                    ? <Results accr={stateSize} query={value} />
                     : null
             }
 

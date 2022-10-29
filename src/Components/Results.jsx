@@ -4,7 +4,7 @@ import { useState } from "react"
 import { getByTitle } from "../Services/TextService"
 import { getExtlinks, getImageURLs } from "../Services/WikiService"
 
-const Results = ({ query, lang='fi' }) => {
+const Results = ({ query, lang='fi', accr }) => {
     const [text, setText] = useState(null)
     const [essayGenerationTimes, setTimes] = useState(0)
 
@@ -12,7 +12,7 @@ const Results = ({ query, lang='fi' }) => {
 
     useEffect(() => {
         setText(null)
-        getByTitle(query, lang)
+        getByTitle(query, lang, accr)
             .then(res => {
                 setText(res.data)
             })
@@ -20,14 +20,14 @@ const Results = ({ query, lang='fi' }) => {
                 console.error(err)
                 alert('Virhe esseen lataamisessa!')
             })
-    }, [query, essayGenerationTimes, lang])
+    }, [query, essayGenerationTimes, lang, accr])
 
     if (!text) {
         return <ResultsSkeleton />
     }
 
     if (text.length === 1 && !text[0]) {
-        return <Typography sx={{ mt: 0.5 }} paragraph>Valitettavasti emme pystyneet tekemään tästä aiheesta esseetä 😰😰😰</Typography>
+        return <Typography sx={{ mt: 1 }} paragraph>Valitettavasti emme pystyneet tekemään tästä aiheesta esseetä 😰😰😰 Voit saada tuloksia, jos vaihdat 'Lisää valintoja' -osiosta eri tarkkuuden.</Typography>
     }
 
     const wikipediaURL = `https://${lang}.wikipedia.org/wiki/${query}`

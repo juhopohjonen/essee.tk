@@ -39,6 +39,11 @@ const Search = (props) => {
         }
     }, [query, language])
 
+    const setSearchValues = () => {
+        props.setval(chosen)
+        props.setState(accuracy)
+    }
+
     return (
         <Box>
             <Autocomplete
@@ -86,8 +91,9 @@ const Search = (props) => {
                         value={accuracy}
                         step={1}
                         marks
-                        min={0}
+                        min={1}
                         max={5}
+                        valueLabelDisplay='auto'
                         sx={{ maxWidth: '300px', mt: 0, ml: 0.75 }}
                         onChange={(e) => setAccuracy(e.target.value)}
                     />
@@ -97,7 +103,7 @@ const Search = (props) => {
             </Accordion>
 
 
-            <Button disabled={!query} onClick={() => { props.setval(chosen) }} sx={{ mt: 1 }} variant='outlined' color='primary'>Luo teksti</Button>            
+            <Button disabled={!query} onClick={setSearchValues} sx={{ mt: 1 }} variant='outlined' color='primary'>Luo teksti</Button>            
         </Box>
     )
 }
