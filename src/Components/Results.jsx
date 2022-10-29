@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, Skeleton, Typography, Link as MuiLink, CardMedia, CircularProgress as Spinner } from "@mui/material"
+import { Box, Button, Card, CardActions, CardContent, Skeleton, Typography, Link as MuiLink, CardMedia, CircularProgress as Spinner, Alert, AlertTitle } from "@mui/material"
 import { useEffect } from "react"
 import { useState } from "react"
 import { getByTitle } from "../Services/TextService"
@@ -7,6 +7,8 @@ import { getExtlinks, getImageURLs } from "../Services/WikiService"
 const Results = ({ query, lang='fi', accr }) => {
     const [text, setText] = useState(null)
     const [essayGenerationTimes, setTimes] = useState(0)
+
+    const [hasErrored, setErrored] = useState(false)
 
     const title = getTitleByLang(lang)
 
@@ -18,9 +20,23 @@ const Results = ({ query, lang='fi', accr }) => {
             })
             .catch(err => {
                 console.error(err)
-                alert('Virhe esseen lataamisessa!')
+                setErrored(true)
             })
-    }, [query, essayGenerationTimes, lang, accr])
+    }, [query, essayGenerationTimes, lang, accr, hasErrored])
+
+    if (hasErrored) {
+        return (
+            <Box sx={{ mt: 1 }}>
+                <Alert severity="error">
+                    <AlertTitle>Virhe esseen luomisessa!</AlertTitle>
+                    
+                    😭 Kyllä mulki menis hermot. Mut ei midii häppeningii, yritä vaa again 😎
+                    <br />
+                    <Button sx={{ mt: 1 }} variant='outlined' color='success' onClick={() => setErrored(false)}>Yritä uudelleen</Button>
+                </Alert>
+            </Box>
+        )
+    }
 
     if (!text) {
         return <ResultsSkeleton />
