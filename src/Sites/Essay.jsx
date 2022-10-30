@@ -11,6 +11,8 @@ const Essay = () => {
     const [doesExist, setExist] = useState(null)
     const navigate = useNavigate()
 
+    const [stateSize, setState] = useState(null)
+
     useEffect(() => {
         const get = async () => {
 
@@ -64,7 +66,7 @@ const Essay = () => {
     return (
         <Box sx={{ mt: 2 }}>
             <Typography variant='h3' component='h1'>{name}</Typography>
-            <Results query={name} />
+            <Results accr={stateSize} query={name} />
 
             <hr style={{ marginTop: 25, marginBottom: 25 }} />
             
@@ -72,7 +74,7 @@ const Essay = () => {
             <Typography gutterBottom paragraph>Essee.tk:n avulla voit saada parempia numeroita koulusta. Säästät myös aikaa. Essee.tk on tekoäly, joka generoi sinulle esseitä ilmaiseksi. Syötät vain aiheen, ja sinulla on essee tai tietoteksti valmiina. Koska essee on tekoälyn tekemä, se on myös erittäin älykkään kuuloinen.
             Ihminen ei osaisi kirjoittaa tällaista. Oletko valmis kokeilemaan? Alta löydät hakupalkin.</Typography>
 
-            <Search setval={changeVal} />
+            <Search setState={setState} setval={changeVal} />
             <br />
 
             <Typography gutterBottom>Essee.tk käyttää tietolähteenä ja tietojen hakijana <MuiLink href="https://fi.wikipedia.org/wiki/Wikipedia:Etusivu">suomenkielistä Wikipediaa, joka on käytettävissä Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)  -lisenssillä.</MuiLink></Typography>

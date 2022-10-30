@@ -98,7 +98,7 @@ const Search = (props) => {
                         onChange={(e) => setAccuracy(e.target.value)}
                     />
 
-                    <Typography gutterBottom color='text.secondary'>Mitä suurempi tarkkuus, sitä vähemmän sanoja. Mitä pienempi tarkkuus, sitä enemmän sanoja.</Typography>
+                    <Typography gutterBottom color='text.secondary'>Mitä pienempi tarkkuus, sitä enemmän sanoja.</Typography>
                 </AccordionDetails>
             </Accordion>
 
