@@ -1,11 +1,11 @@
-import { Link as MuiLink } from "@mui/material"
+import { Link as StyledLink } from "@mui/material"
 import { Link } from "react-router-dom"
 
 const RouterLink = ({ children, to }) => {
     return (
-        <Link color='primary' as={MuiLink} to={to}>
+        <StyledLink color='primary' component={Link} to={to}>
             { children }
-        </Link>
+        </StyledLink>
     )
 }
 

@@ -1,5 +1,5 @@
 import { Typography, Link as MuiLink } from '@mui/material'
-import OtherLangSearch from './OtherLangSearch'
+import OtherLangSearch from '../OtherLanguages/OtherLangSearch'
 
 const BetterGrades = () => {
     return (

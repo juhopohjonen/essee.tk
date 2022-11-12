@@ -3,14 +3,14 @@ import { Link as MuiLink } from "@mui/material"
 import Layout from "./Layout"
 import NotFound from "./Sites/404"
 import Marko from "./Sites/Index"
-import Info from "./Sites/Info"
+import Info from "./Sites/StaticPages/Info"
 
 import CookieConsent from 'react-cookie-consent'
 
 import { useState } from "react"
 import Essay from "./Sites/Essay"
 import EngIndex from "./Sites/OtherLanguages/OtherIndex"
-import BetterGrades from "./Sites/OtherLanguages/BetterGrades"
+import BetterGrades from "./Sites/StaticPages/BetterGrades"
 import Englanti from "./Sites/OtherLanguages/Englanti"
 
 const HOTJAR_ID = "3204204"

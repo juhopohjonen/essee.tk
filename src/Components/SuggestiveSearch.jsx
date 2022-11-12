@@ -1,5 +1,5 @@
 import { Autocomplete, Button, Box, Typography, CircularProgress, Slider, TextField, Accordion, AccordionSummary, AccordionDetails } from "@mui/material"
-import { Fragment, useEffect, useRef } from "react"
+import { Fragment, useEffect } from "react"
 import { useState } from "react"
 import { getQueryContents } from "../Services/WikiService"
 

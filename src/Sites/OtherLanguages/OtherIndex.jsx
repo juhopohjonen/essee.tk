@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import { RouterLink } from '../../Components/Markup'
-import WikiAttr from '../../Components/WikiAttr'
 import OtherLangSearch from './OtherLangSearch'
 
 const EngIndex = () => {

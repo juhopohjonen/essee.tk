@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, CircularProgress, MenuItem, Select, Step, StepLabel, Stepper, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Results from "../../Components/Results"
 import Search from "../../Components/SuggestiveSearch"
 import WikiAttr from "../../Components/WikiAttr"
