@@ -30,7 +30,7 @@ const titleRoutings = [
     {
         url: '/kielet/englanti',
         title: 'Englanninkielinen essee',
-        description: 'Onko mielessäsi, miten saada parempia numeroita englannista? Essee.tk tarjoaa mahdollisuuden mm. englanninkielisten esseiden luomiseen. Testaa sitä!'
+        description: 'Oletko miettinyt, miten saada parempia numeroita englannista? Essee.tk tarjoaa mahdollisuuden mm. englanninkielisten esseiden luomiseen. Testaa sitä!'
     }
 ]
 
