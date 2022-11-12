@@ -29,7 +29,7 @@ const Essay = () => {
             }
 
             // change title
-            document.title = `Essee - ${res.data.parse.title}`
+            document.title = `Essee aiheesta ${res.data.parse.title}`
 
         }
 

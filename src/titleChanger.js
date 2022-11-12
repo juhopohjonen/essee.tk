@@ -10,7 +10,7 @@ const titleRoutings = [
     {
         url: '/',
         title: 'Etusivu',
-        description: 'Essee.tk:n avulla tekoäly luo sinulle helposti valmiin esseen vain pienessä hetkessä. Valitse Essee.tk, niin saat valmiin ratkaisun ongelmiisi.'
+        description: 'Oletko miettinyt, miten saada parempia arvosanoja koulusta? Essee.tk on tekoäly, joka kirjoittaa esseitä, tietotekstäjä, kirjoitelmia ja muita tekstejä.'
     },
     {
         url: '/info',
