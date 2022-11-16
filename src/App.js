@@ -12,6 +12,7 @@ import Essay from "./Sites/Essay"
 import EngIndex from "./Sites/OtherLanguages/OtherIndex"
 import BetterGrades from "./Sites/StaticPages/BetterGrades"
 import Englanti from "./Sites/OtherLanguages/Englanti"
+import Physics from "./Sites/Physics.jsx/PhysIndex"
 
 const HOTJAR_ID = "3204204"
 
@@ -34,6 +35,11 @@ const App = () => {
 
               <Route path="parempia-arvosanoja" element={<BetterGrades />} />
             </Route>
+
+            <Route path="fysiikka">
+              <Route index element={<Physics />} />   
+            </Route>  
+
           </Route>
         </Routes>
     </BrowserRouter>
