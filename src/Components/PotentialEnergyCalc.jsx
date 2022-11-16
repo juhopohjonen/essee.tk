@@ -70,10 +70,12 @@ const PotentialCalc = ({ sx }) => {
 
         setResult({
             potentialEnergy,
-            massInterval,
-            heightInterval,
-            gravityInterval,
-            potentialInterval
+            inters: [
+                massInterval,
+                heightInterval,
+                gravityInterval,
+                potentialInterval
+            ]
         })
     }
 
@@ -130,7 +132,7 @@ const Result = ({ res }) => {
         return null
     }
 
-    const resValues = Object.values(res)
+    const resValues = Object.values(res.inters)
 
     return (
         <Box sx={{ mt: 1 }}>
