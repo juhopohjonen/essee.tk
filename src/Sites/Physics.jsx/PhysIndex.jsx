@@ -19,7 +19,7 @@ const Physics = () => {
 const Things = () => {
     return (
         <>
-            <Typography variant='h5' component='h2'>Laitetaanko sinut opiskelemaan Fysiikkaa?</Typography>
+            <Typography variant='h5' component='h2'>Laitetaanko sinutkin opiskelemaan Fysiikkaa?</Typography>
             <Typography variant='subtitle1' gutterBottom color='text.secondary'>Nyt sinun ei enää tarvitse, sillä laskemme laskut sinulle. Puolestasi.</Typography>
 
             <Typography paragraph>Me Essee.tk:lla haluamme varmistaa, että saat erittäin hyvän numeron fysiikasta. Nämä laskurit kertovat sinulle ratkaisuja monenlaisiin eri fysiikan tehtäviin. Eikä pelkästään vain ratkaisuja: laskuja, vastauksia, välivaiheita ja jopa sanallisia vastauksia, jos niitä vaaditaan.

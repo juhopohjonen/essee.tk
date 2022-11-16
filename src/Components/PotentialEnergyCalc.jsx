@@ -1,4 +1,4 @@
-import { Box, Button, Typography, MenuItem, Select, TextField } from "@mui/material"
+import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent } from "@mui/material"
 import { useState } from "react"
 
 
@@ -40,6 +40,15 @@ const PotentialCalc = ({ sx }) => {
     ]
     const [heightUnit, setHeightUnit] = useState('m')
     
+    const isValidRegex = () => {
+        const regex = /^[0-9\b]+$/
+        
+        if (regex.test(height) && regex.test(mass)) {
+            return true
+        }
+
+        return false
+    }
 
     const calculate = () => {
         const massUnitObj = massUnits.find(unit => unit.name === massUnit)
@@ -63,7 +72,7 @@ const PotentialCalc = ({ sx }) => {
 
         let massInterval = massUnitName === 'kg' ? `m = ${massInKG.toString()} kg` : `m = ${mass.toString()} ${massUnitName} = ${massInKG.toString()} kg`
         let heightInterval = heightUnitName === 'm' ? `h = ${heightInM.toString()} m` : `h = ${height} ${heightUnitName} = ${heightInM} m`
-        let gravityInterval = `G = mg = ${massInterval} * 10 m/s^2 = ${gravity} N`
+        let gravityInterval = `G = mg = ${massInKG} kg * 10 m/s^2 = ${gravity} N`
         let potentialInterval = `Ep = Gh = ${gravity} N * ${heightInM} m = ${potentialEnergy} J`
 
         
@@ -119,7 +128,7 @@ const PotentialCalc = ({ sx }) => {
 
             </Box>
 
-            <Button sx={{ mt: 1 }} onClick={calculate} variant='contained'>Laske potentiaalienergia</Button>
+            <Button disabled={!isValidRegex()} sx={{ mt: 1 }} onClick={calculate} variant='contained'>Laske potentiaalienergia</Button>
 
             <Result res={result} />
 
@@ -135,9 +144,16 @@ const Result = ({ res }) => {
     const resValues = Object.values(res.inters)
 
     return (
-        <Box sx={{ mt: 1 }}>
-            <Typography paragraph>Vastaus: {res.potentialEnergy} J</Typography>
-            {resValues.map(val => <Typography key={val}>{val}</Typography>)}
+        <Box sx={{ mt: 2 }}>
+            <Card>
+                <CardContent>
+                    <Typography variant='h4'>Laskusi</Typography>
+                    {resValues.map(val => <Typography key={val} paragraph>{val}</Typography> )}
+                    <Typography variant='h6'>Vastaus: {res.potentialEnergy} J</Typography>
+                </CardContent>
+            </Card>
+
+
         </Box>
     )
 }
