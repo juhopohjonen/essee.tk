@@ -122,6 +122,7 @@ const PotentialCalc = ({ sx }) => {
                     id="heightUnitSel"
                     value={heightUnit}
                     onChange={(e) => setHeightUnit(e.target.value)}
+                    sx={{ ml: 0.5 }}
                 >
                     {heightUnits.map(unit => <MenuItem key={unit.name} value={unit.name}>{unit.name}</MenuItem>)}
                 </Select>
