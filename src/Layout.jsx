@@ -1,4 +1,4 @@
-import { createTheme, CssBaseline, ThemeProvider, Container, Box, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material'
+import { createTheme, CssBaseline, ThemeProvider, Container, Box, AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 
@@ -69,8 +69,11 @@ const Navbar = () => {
                         onClose={() => setAnchor(null)}
                     >
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/'>Etusivu</MenuItem>
-                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/info'>Tietoa</MenuItem>
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/kielet'>Kielten essee</MenuItem>
+                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/fysiikka'>Fysiikka</MenuItem>
+                        <Divider />
+                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/info'>Tietoa</MenuItem>
+
 
                     </Menu>
                     <Box sx={{ flexGrow: 1 }} as={Link} to='/'>
