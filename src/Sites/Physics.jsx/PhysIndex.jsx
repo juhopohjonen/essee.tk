@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material"
-import PotentialCalc from "./PotentialEnergyCalc"
+import PotentialCalc from "../../Components/PotentialEnergyCalc"
 
 const Physics = () => {
     return (
@@ -9,7 +9,7 @@ const Physics = () => {
             <Typography variant='h5' component='h2' gutterBottom>Potentiaalienergia ja sen laskeminen</Typography>
             <Typography paragraph>Me emme rupea lätisemään turhia, kuten sinulle yleensä asia selitettäisiin. Me kerromme vastaukset sinulle suoraan. Mukisematta. Laske potentiaalienergia alla olevalla laskimella.</Typography>
         
-            <PotentialCalc />
+            <PotentialCalc sx={{ mt: 3, mb: 3 }} />
 
             <Things />
         </Box>
