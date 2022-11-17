@@ -31,6 +31,11 @@ const titleRoutings = [
         url: '/kielet/englanti',
         title: 'Englanninkielinen essee',
         description: 'Oletko miettinyt, miten saada parempia numeroita englannista? Essee.tk tarjoaa mahdollisuuden mm. englanninkielisten esseiden luomiseen. Testaa sitä!'
+    },
+    {
+        url: '/fysiikka',
+        title: 'Fysiikka',
+        description: 'Fysiikka on vaikeaa. Oletko koskaan miettinyt, miten saada parempia numeroita Fysiikasta? Tiedätkö, miten laskea potentiaalienergia? Kiinnostaako sinua fysiikka? Laske fysiikan laskut nettisivumme avulla.'
     }
 ]
 
