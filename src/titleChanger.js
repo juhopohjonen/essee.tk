@@ -36,6 +36,11 @@ const titleRoutings = [
         url: '/fysiikka',
         title: 'Fysiikka',
         description: 'Fysiikka on vaikeaa. Oletko koskaan miettinyt, miten saada parempia numeroita Fysiikasta? Tiedätkö, miten laskea potentiaalienergia? Kiinnostaako sinua fysiikka? Laske fysiikan laskut nettisivumme avulla.'
+    },
+    {
+        url: '/lunttilappu',
+        title: 'Lunttilappu',
+        description: 'Lunttilappu-ohjelman avulla voit muistaa paljon enemmän asioita, kuin muuten muistaisit. Lunttilappu tallentaa kaikki kirjoituksesi automaattisesti selaimellesi. Lunttilapun avulla voit saada parempia numeroita!'
     }
 ]
 

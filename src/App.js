@@ -13,6 +13,7 @@ import EngIndex from "./Sites/OtherLanguages/OtherIndex"
 import BetterGrades from "./Sites/StaticPages/BetterGrades"
 import Englanti from "./Sites/OtherLanguages/Englanti"
 import Physics from "./Sites/Physics.jsx/PhysIndex"
+import Lunttilappu from "./Sites/StaticPages/Lunttilappu"
 
 const HOTJAR_ID = "3204204"
 
@@ -39,6 +40,8 @@ const App = () => {
             <Route path="fysiikka">
               <Route index element={<Physics />} />   
             </Route>  
+
+            <Route path="lunttilappu" element={<Lunttilappu />} />
 
           </Route>
         </Routes>
