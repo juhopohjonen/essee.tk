@@ -1,5 +1,6 @@
 import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent } from "@mui/material"
 import { useState } from "react"
+import Latex from "react-latex"
 
 
 const PotentialCalc = ({ sx }) => {
@@ -20,13 +21,8 @@ const PotentialCalc = ({ sx }) => {
         }
     ]
 
-    const [mass, setMass] = useState(0)
-    const changeMass = (e) => {
-        const massTarget = e.target.value
-        setMass(massTarget)
-    }
-
-    const [height, setHeight] = useState(0)
+    const [mass, setMass] = useState('')
+    const [height, setHeight] = useState('')
 
     const heightUnits = [
         {
@@ -39,16 +35,6 @@ const PotentialCalc = ({ sx }) => {
         }
     ]
     const [heightUnit, setHeightUnit] = useState('m')
-    
-    const isValidRegex = () => {
-        const regex = /^[0-9\b]+$/
-        
-        if (regex.test(height) && regex.test(mass)) {
-            return true
-        }
-
-        return false
-    }
 
     const calculate = () => {
         const massUnitObj = massUnits.find(unit => unit.name === massUnit)
@@ -72,10 +58,8 @@ const PotentialCalc = ({ sx }) => {
 
         let massInterval = massUnitName === 'kg' ? `m = ${massInKG.toString()} kg` : `m = ${mass.toString()} ${massUnitName} = ${massInKG.toString()} kg`
         let heightInterval = heightUnitName === 'm' ? `h = ${heightInM.toString()} m` : `h = ${height} ${heightUnitName} = ${heightInM} m`
-        let gravityInterval = `G = mg = ${massInKG} kg * 10 m/s^2 = ${gravity} N`
+        let gravityInterval = `G = mg = ${massInKG} kg * 10 m/s^2 = ${gravity} N `
         let potentialInterval = `Ep = Gh = ${gravity} N * ${heightInM} m = ${potentialEnergy} J`
-
-        
 
         setResult({
             potentialEnergy,
@@ -88,6 +72,24 @@ const PotentialCalc = ({ sx }) => {
         })
     }
 
+    const regex = /^[0-9.\b]+$/
+
+    const heightChange = (e) => {
+        if (e.target.value !== '' && !regex.test(e.target.value)) {
+            return false
+        }
+
+        setHeight(e.target.value)
+    }
+    
+    const massChange = (e) => {
+        if (e.target.value !== '' && !regex.test(e.target.value)){
+            return e.preventDefault()
+        }
+
+        setMass(e.target.value)
+    }
+
     return (
         <Box sx={sx}>
             
@@ -95,7 +97,7 @@ const PotentialCalc = ({ sx }) => {
                 inputProps={{ inputMode: 'numeric', patterns: '[0-9]*' }}  
                 label={`Massa (${massUnit.toString()})`}
                 value={mass}
-                onChange={(e) => changeMass(e)}
+                onChange={(e) => massChange(e)}
             />
             <Select
                 labelId="massUnitSelLab"
@@ -115,7 +117,7 @@ const PotentialCalc = ({ sx }) => {
                     inputProps={{ inputMode: 'numeric', patterns: '[0-9]*' }}
                     label={`Korkeus (${heightUnit})`}
                     value={height}
-                    onChange={(e) => setHeight(e.target.value)}
+                    onChange={heightChange}
                 />
                 <Select
                     labelId="heightUnitSel"
@@ -129,7 +131,7 @@ const PotentialCalc = ({ sx }) => {
 
             </Box>
 
-            <Button disabled={!isValidRegex()} sx={{ mt: 1 }} onClick={calculate} variant='contained'>Laske potentiaalienergia</Button>
+            <Button sx={{ mt: 1 }} onClick={calculate} variant='contained'>Laske potentiaalienergia</Button>
 
             <Result res={result} />
 
@@ -149,12 +151,20 @@ const Result = ({ res }) => {
             <Card>
                 <CardContent>
                     <Typography variant='h4'>Laskusi</Typography>
-                    {resValues.map(val => <Typography key={val} paragraph>{val}</Typography> )}
+                    {resValues.map(val => <LatexAnswer key={val} ans={val} /> )}
                     <Typography variant='h6'>Vastaus: {res.potentialEnergy} J</Typography>
                 </CardContent>
             </Card>
 
 
+        </Box>
+    )
+}
+
+const LatexAnswer = ({ ans }) => {
+    return (
+        <Box>
+            <Latex displayMode={true}>{ans}</Latex>
         </Box>
     )
 }
