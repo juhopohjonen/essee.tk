@@ -1,9 +1,9 @@
-import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent } from "@mui/material"
+import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent, Divider } from "@mui/material"
 import { useState } from "react"
 import Latex from "react-latex"
 
 
-const PotentialCalc = ({ sx }) => {
+const PotentialCalc = ({ sx, isLiftWork=false }) => {
     const [result, setResult] = useState(null)
 
     const [massUnit, setMassUnit] = useState('kg')
@@ -59,7 +59,9 @@ const PotentialCalc = ({ sx }) => {
         let massInterval = massUnitName === 'kg' ? `m = ${massInKG.toString()} kg` : `m = ${mass.toString()} ${massUnitName} = ${massInKG.toString()} kg`
         let heightInterval = heightUnitName === 'm' ? `h = ${heightInM.toString()} m` : `h = ${height} ${heightUnitName} = ${heightInM} m`
         let gravityInterval = `G = mg = ${massInKG} kg * 10 m/s^2 = ${gravity} N `
-        let potentialInterval = `Ep = Gh = ${gravity} N * ${heightInM} m = ${potentialEnergy} J`
+        
+        let potentialInterval = isLiftWork ? `W = Gh = ${gravity} N * ${heightInM} m = ${potentialEnergy} J` : `Ep = Gh = ${gravity} N * ${heightInM} m = ${potentialEnergy} J`
+
 
         setResult({
             potentialEnergy,
@@ -131,15 +133,16 @@ const PotentialCalc = ({ sx }) => {
 
             </Box>
 
-            <Button sx={{ mt: 1 }} onClick={calculate} variant='contained'>Laske potentiaalienergia</Button>
 
-            <Result res={result} />
+            <Button sx={{ mt: 1 }} onClick={calculate} color='success' variant='contained'>{isLiftWork ? 'Laske nostotyö' : 'Laske potentiaalienergia'}</Button>
+
+            <Result res={result} header={isLiftWork ? 'Nostotyön lasku' : 'Potentiaalienergian lasku'} />
 
         </Box>
     )
 }
 
-const Result = ({ res }) => {
+const Result = ({ res, header }) => {
     if (!res) {
         return null
     }
@@ -150,7 +153,7 @@ const Result = ({ res }) => {
         <Box sx={{ mt: 2 }}>
             <Card>
                 <CardContent>
-                    <Typography variant='h4'>Laskusi</Typography>
+                    <Typography variant='h4'>{header}</Typography>
                     {resValues.map(val => <LatexAnswer key={val} ans={val} /> )}
                     <Typography variant='h6'>Vastaus: {res.potentialEnergy} J</Typography>
                 </CardContent>
