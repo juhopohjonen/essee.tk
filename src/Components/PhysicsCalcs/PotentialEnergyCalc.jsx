@@ -3,7 +3,7 @@ import { useState } from "react"
 import Latex from "react-latex"
 
 
-const PotentialCalc = ({ sx }) => {
+const PotentialCalc = ({ sx, buttonColor='secondary' }) => {
     const [result, setResult] = useState(null)
 
     const [massUnit, setMassUnit] = useState('kg')
@@ -131,7 +131,7 @@ const PotentialCalc = ({ sx }) => {
 
             </Box>
 
-            <Button sx={{ mt: 1 }} onClick={calculate} variant='contained'>Laske potentiaalienergia</Button>
+            <Button sx={{ mt: 1 }} onClick={calculate} color={buttonColor} variant='contained'>Laske potentiaalienergia</Button>
 
             <Result res={result} />
 
