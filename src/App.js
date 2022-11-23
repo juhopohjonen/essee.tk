@@ -28,7 +28,7 @@ const App = () => {
             <Route index element={<Marko />} />
             <Route path="info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
-            <Route path='/:name' element={<Essay />} />
+            <Route path='essee/:name' element={<Essay />} />
 
             <Route path="kielet">
               <Route index element={<EngIndex />} />

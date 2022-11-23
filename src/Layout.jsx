@@ -69,11 +69,16 @@ const Navbar = () => {
                         onClose={() => setAnchor(null)}
                     >
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/'>Etusivu</MenuItem>
+                        <Divider />
+
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/kielet'>Kielten essee</MenuItem>
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/fysiikka'>Fysiikka</MenuItem>
                         <Divider />
-                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/info'>Tietoa</MenuItem>
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/lunttilappu'>Lunttilappu</MenuItem>
+
+                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/info'>Tietoa</MenuItem>
+
+                        
 
                     </Menu>
                     <Box sx={{ flexGrow: 1 }} as={Link} to='/'>

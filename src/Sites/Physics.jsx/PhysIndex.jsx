@@ -1,5 +1,7 @@
-import { Box, Typography, Divider } from "@mui/material"
-import PotentialCalc from "../../Components/PotentialEnergyCalc"
+import { Box, Divider, Typography } from "@mui/material"
+
+import PotentialCalc from "../../Components/PhysicsCalcs/PotentialEnergyCalc"
+import PowerCalculator from "../../Components/PhysicsCalcs/PowerCalculator"
 
 const Physics = () => {
     return (
@@ -10,6 +12,17 @@ const Physics = () => {
             <Typography paragraph>Me emme rupea lätisemään turhia, kuten sinulle yleensä asia selitettäisiin. Me kerromme vastaukset sinulle suoraan. Mukisematta. Laske potentiaalienergia alla olevalla laskimella.</Typography>
             
             <PotentialCalc sx={{ mt: 3, mb: 3 }} />
+
+
+            <Divider />
+
+
+            <Typography sx={{ mt: 3 }} variant='h5' component='h2' gutterBottom>Tehon laskeminen - Teholaskuri</Typography>
+            <Typography paragraph gutterBottom>Meneeko hermot tehon laskemisessa? Nyt voit välttyä tehon laskemiselta. Teholaskuri on täällä - välivaiheiden kanssa.</Typography>
+            
+            <PowerCalculator sx={{ mb: 3 }} />
+
+
 
             <Divider />
 
