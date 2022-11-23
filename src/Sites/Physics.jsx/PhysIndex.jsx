@@ -9,7 +9,7 @@ const Physics = () => {
             <Typography variant='h3' component='h1' gutterBottom>Fysiikka</Typography>
 
             <Typography variant='h5' component='h2' gutterBottom>Potentiaalienergia ja sen laskeminen</Typography>
-            <Typography paragraph>Me emme rupea lätisemään turhia, kuten sinulle yleensä asia selitettäisiin. Me kerromme vastaukset sinulle suoraan. Mukisematta. Laske potentiaalienergia alla olevalla laskimella.</Typography>
+            <Typography paragraph>Me emme rupea lätisemään turhia, kuten sinulle potentiaalienergian laskeminen selitettäisiin. Me kerromme vastaukset sinulle suoraan. Mukisematta. Laske potentiaalienergia alla olevalla laskimella.</Typography>
             
             <PotentialCalc sx={{ mt: 3, mb: 3 }} />
 
