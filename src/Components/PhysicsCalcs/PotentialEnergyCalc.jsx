@@ -1,6 +1,7 @@
-import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent, Divider } from "@mui/material"
+import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent } from "@mui/material"
 import { useState } from "react"
 import Latex from "react-latex"
+import ResultCard from "./ResultCard"
 
 
 const PotentialCalc = ({ sx, isLiftWork=false }) => {
@@ -64,7 +65,7 @@ const PotentialCalc = ({ sx, isLiftWork=false }) => {
 
 
         setResult({
-            potentialEnergy,
+            finalRes: potentialEnergy,
             inters: [
                 massInterval,
                 heightInterval,
@@ -136,7 +137,7 @@ const PotentialCalc = ({ sx, isLiftWork=false }) => {
 
             <Button sx={{ mt: 1 }} onClick={calculate} color='success' variant='contained'>{isLiftWork ? 'Laske nostotyö' : 'Laske potentiaalienergia'}</Button>
 
-            <Result res={result} header={isLiftWork ? 'Nostotyön lasku' : 'Potentiaalienergian lasku'} />
+            <ResultCard res={result} header={isLiftWork ? 'Nostotyön lasku' : 'Potentiaalienergian lasku'} />
 
         </Box>
     )
