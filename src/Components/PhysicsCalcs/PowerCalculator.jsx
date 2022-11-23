@@ -22,7 +22,7 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
         },
         {
             unitName: 'kJ',
-            jouleFactor: 0.001
+            jouleFactor: 1000
         }
     ]
 
@@ -38,6 +38,9 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
     const regex = /^[0-9.\b]+$/
 
     const [result, setResult] = useState(null)
+
+    
+
     
 
     const timeChange = (e) => {
@@ -55,30 +58,56 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
     const energyChange = (e) => {
         const value = e.target.value
 
-        if (regex.test(value) || value === '') {
-            setEnergy(value)
-        } else if (!regex.test(value)) {
-            return
-        }
-
         if (value === '') {
             setEnergyInJoule(0)
         } else {
             
             // find object and change to SI-values
             const unit = energyUnits.find(unit => unit.unitName === energyUnit)
+            console.log('eunit', unit)
+
+            const energyValue = value * unit.jouleFactor
+            console.log('eval', energyValue)
+
+            setEnergyInJoule(energyValue)
+            console.log('eij', energyInJoule)
+        }
+
+        if (regex.test(value) || value === '') {
+            setEnergy(value)
+        } else if (!regex.test(value)) {
+            console.log('invalid regex')
+            return
+        }
+
+        if (energyInp === '') {
+            setEnergyInJoule(0)
+        } else {
+            // find object and change to SI-values
+            const unit = energyUnits.find(unit => unit.unitName === energyUnit)
             console.log(unit, energyUnit)
             const energyValue = value * unit.jouleFactor
             setEnergyInJoule(energyValue)
-
+            console.log('eij', energyInJoule)
         }
+
+
     }
     
+    
 
-    const calculatePower = () => {
+    const calculatePower = async () => {
+    
+        const { jouleFactor } = energyUnits.find(unit => unit.unitName === energyUnit)
+
+        const energySetting = Number(energyInp * jouleFactor)
+        console.log(energySetting)
+        await setEnergyInJoule(Number(energyInp * jouleFactor))
+
         // Power = W / t
         
-        const result = Number(energyInJoule) / Number(timeInS)
+        const result = energyInJoule / timeInS
+        console.log('p', energyInJoule, '/', timeInS)
 
         const workInterval = 
             energyUnit === 'j' 
@@ -87,11 +116,11 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
 
         const timeInterval =
             timeUnit === 'sek'
-                ? `t = ${timeInS}`
-                : `t = ${timeInput} = ${timeInS}`
+                ? `t = ${timeInS} s`
+                : `t = ${timeInput} min = ${timeInS} sek`
             
 
-        const finalInterval = `P = W / t = ${result}`
+        const finalInterval = `P = W / t = ${energyInJoule} J / ${timeInS} sek = ${result}`
 
         const resultToSet = {
             finalRes: result,
@@ -113,16 +142,19 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
                 inputProps={{ inputMode: 'numeric', patterns: '[0-9]*' }}  
                 label={`Energia (${energyUnit === 'kJ' ? 'kilojoulea' : 'joulea'})`}
                 value={energyInp}
-                onChange={energyChange}
+                onChange={(e) => energyChange(e)}
             />            
             <Select
                 sx={{ ml: 0.5 }}
                 value={energyUnit}
-                onChange={(e) => setEnergyUnit(e.target.value)}
+                onChange={async (e) => {
+                    console.log('targ val', e.target.value)
+                    await setEnergyUnit(e.target.value)
+                }}
             >
                 {energyUnits.map(unit => <MenuItem key={unit.unitName} value={unit.unitName}>{unit.unitName}</MenuItem>)}
             </Select>
-            <br />
+            <br />,
             </Box>
 
             <Box sx={{ mt: 2 }}>
