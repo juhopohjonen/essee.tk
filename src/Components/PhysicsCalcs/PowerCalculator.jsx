@@ -99,28 +99,31 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
     const calculatePower = async () => {
     
         const { jouleFactor } = energyUnits.find(unit => unit.unitName === energyUnit)
+        const { secondFactor } = timeUnits.find(unit => unit.unitName === timeUnit)
 
         const energySetting = Number(energyInp * jouleFactor)
         console.log(energySetting)
         await setEnergyInJoule(Number(energyInp * jouleFactor))
 
+        const siTime = Number(timeInput) * secondFactor
+
         // Power = W / t
         
-        const result = energyInJoule / timeInS
+        const result = energySetting / siTime
         console.log('p', energyInJoule, '/', timeInS)
 
         const workInterval = 
             energyUnit === 'j' 
-                 ? `W = ${energyInJoule} J`
-                 : `W = ${energyInp} kJ = ${energyInJoule} J`
+                 ? `W = ${energySetting} J`
+                 : `W = ${energyInp} kJ = ${energySetting} J`
 
         const timeInterval =
             timeUnit === 'sek'
                 ? `t = ${timeInS} s`
-                : `t = ${timeInput} min = ${timeInS} sek`
+                : `t = ${timeInput} min = ${siTime} sek`
             
 
-        const finalInterval = `P = W / t = ${energyInJoule} J / ${timeInS} sek = ${result}`
+        const finalInterval = `P = W / t = ${energyInJoule} J / ${siTime} sek = ${result} W`
 
         const resultToSet = {
             finalRes: result,
@@ -148,13 +151,18 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
                 sx={{ ml: 0.5 }}
                 value={energyUnit}
                 onChange={async (e) => {
-                    console.log('targ val', e.target.value)
-                    await setEnergyUnit(e.target.value)
+                    setEnergyUnit(e.target.value)
+                        .then(() => {
+                            const currentFactor = energyUnits.find(unit => unit.unitName === energyUnit).jouleFactor
+                            setEnergyInJoule(energyInJoule * currentFactor)
+                        })
+
+
                 }}
             >
                 {energyUnits.map(unit => <MenuItem key={unit.unitName} value={unit.unitName}>{unit.unitName}</MenuItem>)}
             </Select>
-            <br />,
+            <br />
             </Box>
 
             <Box sx={{ mt: 2 }}>
@@ -175,8 +183,8 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
                 </Select>
             </Box>
 
-            <Button sx={{ mt: 1 }} color={buttonColor} onClick={calculatePower} variant='contained'>Laske teho</Button>'
-            <ResultCard res={result} header='Tehon laskeminen' />
+            <Button sx={{ mt: 1 }} color={buttonColor} onClick={calculatePower} variant='contained'>Laske teho</Button>
+            <ResultCard resultUnit="W" res={result} header='Tehon laskeminen' />
         </Box>
     )
 }
