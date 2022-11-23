@@ -63,7 +63,7 @@ const Esittely = () => {
             
                 </CardContent>
                 <CardActions sx={{ mt: -3, ml: 1, mb: 1 }}>
-                    <Button onClick={() => navigate('/fysiikka')} color='secondary' variant='contained'>Laske fysiikkaa<CalculateIcon sx={{ ml: 1 }} /></Button>
+                    <Button onClick={() => navigate('/fysiikka')} color='secondary' variant='contained'>Välty fysiikan laskuilta<CalculateIcon sx={{ ml: 1 }} /></Button>
                 </CardActions>
             </Card>
 
