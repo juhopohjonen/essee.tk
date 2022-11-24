@@ -12,7 +12,7 @@ const routingObj = require('../src/titleRoutings')
 
 const titleRoutings = routingObj.titleRoutings
 
-const doc = create({ version: 1.0, encoding: "UTF-8" })
+const doc = create({ version: "1.0", encoding: "UTF-8" })
 const url_elem = doc.ele('urlset', { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" }).ele('url')
 
 for (let i = 0; i < titleRoutings.length; i++) {
