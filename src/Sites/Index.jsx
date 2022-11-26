@@ -6,6 +6,8 @@ import Results from "../Components/Results"
 import Search from "../Components/SuggestiveSearch"
 
 import TranslateIcon from '@mui/icons-material/Translate';
+import CalculateIcon from '@mui/icons-material/Calculate';
+
 import WikiAttr from "../Components/WikiAttr"
 
 const Marko = () => {
@@ -43,7 +45,7 @@ const Esittely = () => {
         <Box sx={{ mt: '30px' }}>
             <Card>
                 <CardContent>
-                <Typography variant='h4' component='h2' gutterBottom>Kielten kirjoitelma</Typography>
+                <Typography variant='h5' component='h5' gutterBottom>Kielten kirjoitelma</Typography>
                 <Typography paragraph>Ovatko esimerkiksi ruotsi tai englanti hankalia aineita? Ei hätää. Essee.tk auttaa myös mm. ruotsin ja englannin kirjoitelmissa. Nyt sinun ei
                 tarvitse enää hukata aikaa ruotsin tai englannin oikeinkirjoituksen opettelemiseen. Eikä sinun enää tarvitse palkata kirjoittamaan ketään esseetä puolestasi!</Typography>
                 </CardContent>
@@ -53,11 +55,27 @@ const Esittely = () => {
                 </CardActions>
             </Card>
 
+            <Card sx={{ mt: 2 }}>
+                <CardContent>
+                    <Typography sx={{ mt: 1 }} variant='h5' component='h2' gutterBottom>Etkö jaksa laskea fysiikan laskuja?</Typography>
+                    <Typography paragraph>Etkö millään jaksaisi tehdä fysiikan tehtäviä? Onko potentiaalienergian laskeminen haastavaa? Etkö jaksa laskea tehoa? Nostaako nostotyön laskeminen agressiotasojasi?
+                    Enää sinun ei tarvitse käyttää fysiikkaan ja fysiikan laskemiseen turhaa aikaa, vaan voit laskea laskut Essee.tk:n laskurilla.</Typography>
+            
+                </CardContent>
+                <CardActions sx={{ mt: -3, ml: 1, mb: 1 }}>
+                    <Button onClick={() => navigate('/fysiikka')} color='secondary' variant='contained'>Välty fysiikan laskuilta<CalculateIcon sx={{ ml: 1 }} /></Button>
+                </CardActions>
+            </Card>
+
+
             <Typography sx={{ mt: 3 }} variant='h5' component='h2'>Etkö jaksa kirjoittaa tekstejä?</Typography>
-            <Typography sx={{ mt: 1 }} paragraph>Me tiedämme, että kouluhommat ovat <b>todella tylsiä.</b> Siksi kokeneet matemaatikkomme ja ohjelmoijamme loivat työkalun <b>juuri sinulle. </b>
+            <Typography sx={{ mt: 1 }} paragraph gutterBottom>Me tiedämme, että kouluhommat ovat <b>todella tylsiä.</b> Siksi kokeneet matemaatikkomme ja ohjelmoijamme loivat työkalun <b>juuri sinulle. </b>
                 Nyt sinun ei tarvitse kirjoittaa esseetä, vaan tekoälymme kirjoittaa sen sinulle. Esseesi kuulostaa <i>lähes</i> ihmisen kirjoittamalta: niin hyvältä, että sitä ei melkein voisi
                 kutsua ihmisen kirjoittamaksi.
             </Typography>
+
+           
+
             <Typography variant='h5' component='h2'>Miten se toimii?</Typography>
             <Typography paragraph>Niilo22:n sanoja lainaten: <MuiLink href='https://www.youtube.com/watch?v=jA6w1lE45b4'><i>"Se on vain korkeempaa matematiikkaa, jotka kaikki ei ymmärrä."</i></MuiLink></Typography>
             <WikiAttr />

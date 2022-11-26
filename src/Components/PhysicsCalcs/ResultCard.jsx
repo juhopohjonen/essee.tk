@@ -1,7 +1,7 @@
 import { Box, Typography, Card, CardContent } from '@mui/material'
 import Latex from 'react-latex'
 
-const ResultCard = ({ res, header }) => {
+const ResultCard = ({ res, header, resultUnit='J' }) => {
     if (!res) {
         return null
     }    
@@ -14,7 +14,7 @@ const ResultCard = ({ res, header }) => {
                 <CardContent>
                     <Typography variant='h4'>{header}</Typography>
                     {resValues.map(val => <LatexAnswer key={val} ans={val} /> )}
-                    <Typography variant='h6'>Vastaus: {res.finalRes} J</Typography>
+                    <Typography variant='h6'>Vastaus: {res.finalRes} {resultUnit}</Typography>
                 </CardContent>
             </Card>
 
