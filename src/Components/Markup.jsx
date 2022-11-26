@@ -1,4 +1,4 @@
-import { Link as StyledLink } from "@mui/material"
+import { Box, Link as StyledLink } from "@mui/material"
 import { Link } from "react-router-dom"
 
 const RouterLink = ({ children, to }) => {
@@ -9,4 +9,12 @@ const RouterLink = ({ children, to }) => {
     )
 }
 
-export { RouterLink }
+const NoStyle = ({ children, to }) => {
+    return (
+        <Box sx={{ color: 'text.primary', textDecoration: 'none' }} component={Link} to={to} >
+            {children}
+        </Box>
+    )
+}
+
+export { RouterLink, NoStyle }
