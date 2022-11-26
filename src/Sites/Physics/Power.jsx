@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material"
 import { RouterLink } from "../../Components/Markup"
 import PowerCalculator from "../../Components/PhysicsCalcs/PowerCalculator"
 
-import tehoImage from '../../Imgs/teho.jpg'
+import tehoImage from '../../Imgs/teho.webp'
 
 const PowerIndex = () => {
     return (
@@ -21,7 +21,7 @@ const PowerIndex = () => {
             <Typography paragraph>Teho on sellainen asia, jonka voi laskea Essee.tk:n laskurin avulla. Se lasketaan siten, että menet osoitteeseen <RouterLink to='/fysiikka/teho'>essee.tk/fysiikka/teho</RouterLink>, ja lasket siellä laskusi.</Typography>
 
             <img src={tehoImage} alt='Kuva tehosta.' width='450' />
-            <Typography component='p' variant="subtitle1" color='text.secondary'>Tällainen kuva löytyi interwebsien ihmeellistä maailmasta! 😮</Typography>
+            <Typography component='p' variant="subtitle1" color='text.secondary' gutterBottom>Tällainen kuva löytyi interwebsien ihmeellistä maailmasta! 😮</Typography>
         </Box>
     )
 }

@@ -123,7 +123,7 @@ const PowerCalculator = ({ sx, buttonColor='success' }) => {
                 : `t = ${timeInput} min = ${siTime} sek`
             
 
-        const finalInterval = `P = W / t = ${energyInJoule} J / ${siTime} sek = ${result} W`
+        const finalInterval = `P = W / t = ${energySetting} J / ${siTime} sek = ${result} W`
 
         const resultToSet = {
             finalRes: result,
