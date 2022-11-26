@@ -27,7 +27,7 @@ const TitleChanger = () => {
             if (titleObject && titleObject.title) {
                 value = titleObject.title
             } else {
-                value = defaultValue
+                return document.title = defaultValue
             }
     
             changeTitle(value)
