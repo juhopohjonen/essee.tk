@@ -1,5 +1,5 @@
-import { Avatar, Box, Card, CardContent, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography } from "@mui/material"
-import PhysImg from '../../Imgs/fysiikka.jpg'
+import { Avatar, Box, Card, CardContent, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Tooltip, Typography } from "@mui/material"
+import PhysImg from '../../Imgs/fysiikka.webp'
 
 import BoltIcon from '@mui/icons-material/Bolt';
 import HeightIcon from '@mui/icons-material/Height';
@@ -16,8 +16,9 @@ const Physics = () => {
             <Typography paragraph>Essee.tk ei pelkästään kerro sinulle fysiikasta. Essee.tk myös laskee sinulle tehtävät ja niiden vastaukset - välivaihdeiden kanssa. Sivullamme on lukuisia, laadukkaita laskimia. Katso alla olevaa listaa, niin hoidetaan sinulle laskut kuntoon!</Typography>
             <CalcList />
 
-
-            <img src={PhysImg} alt='Miten laskea fysiikkaa?' width='500px' />
+            <Tooltip placement="right" title='Albertti'>
+                <img src={PhysImg} alt='Miten laskea fysiikkaa?' width='500px' />
+            </Tooltip>
             <Typography paragraph color='text.secondary'>Fysiikka on helppoa, kunhan vain muistat käyttää Essee.tk:ta.</Typography>
 
             <Typography variant='h4' component='h2' gutterBottom>Miten laskea fysiikan laskuja?</Typography>

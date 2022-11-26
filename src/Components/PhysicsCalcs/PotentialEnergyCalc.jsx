@@ -1,6 +1,5 @@
-import { Box, Button, Typography, MenuItem, Select, TextField, Card, CardContent } from "@mui/material"
+import { Box, Button, MenuItem, Select, TextField } from "@mui/material"
 import { useState } from "react"
-import Latex from "react-latex"
 import ResultCard from "./ResultCard"
 
 
@@ -139,36 +138,6 @@ const PotentialCalc = ({ sx, isLiftWork=false }) => {
 
             <ResultCard res={result} header={isLiftWork ? 'Nostotyön lasku' : 'Potentiaalienergian lasku'} />
 
-        </Box>
-    )
-}
-
-const Result = ({ res, header }) => {
-    if (!res) {
-        return null
-    }
-
-    const resValues = Object.values(res.inters)
-
-    return (
-        <Box sx={{ mt: 2 }}>
-            <Card>
-                <CardContent>
-                    <Typography variant='h4'>{header}</Typography>
-                    {resValues.map(val => <LatexAnswer key={val} ans={val} /> )}
-                    <Typography variant='h6'>Vastaus: {res.potentialEnergy} J</Typography>
-                </CardContent>
-            </Card>
-
-
-        </Box>
-    )
-}
-
-const LatexAnswer = ({ ans }) => {
-    return (
-        <Box>
-            <Latex displayMode={true}>{ans}</Latex>
         </Box>
     )
 }

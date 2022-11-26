@@ -33,6 +33,21 @@ const titleRoutings = [
         url: '/lunttilappu',
         title: 'Lunttilappu',
         description: 'Lunttilappu-ohjelman avulla voit muistaa paljon enemmän asioita, kuin muuten muistaisit. Lunttilappu tallentaa kaikki kirjoituksesi automaattisesti selaimellesi. Lunttilapun avulla voit saada parempia numeroita!'
+    },
+    {
+        url: '/fysiikka/teho',
+        title: 'Teholaskuri',
+        description: 'Oletko miettinyt, miten teho lasketaan? Etkö ole lainkaan tehokas ihminen, etkä jaksaisi laskea tehoa? Sivulta löytyy laadukas teholaskuri, jonka avulla voit saada vastauksen: miten teho lasketaan?.'
+    },
+    {
+        url: '/fysiikka/potentiaalienergia',
+        title: 'Potentiaalienergialaskuri',
+        description: 'Potentiaalienergia on energia, joka on ikään kuin sitoutunut kappaleen paikkaan. Etkö jaksa laskea potentiaalienergialaskuja? Käytä potentiaalienergialaskinta. Fysiikka on helppoa sivustomme avulla!'
+    },
+    {
+        url: '/fysiikka/nosto',
+        title: 'Nostotyölaskuri',
+        description: 'Tiedätkö, miten nostotyö lasketaan? Nostotyön voi laskea laskureillamme. Joskus nostaminen voi olla todella työlästä, mutta sivustomme avulla siihen liittyvän työn laskeminen ei ole.'
     }
 ]
 
