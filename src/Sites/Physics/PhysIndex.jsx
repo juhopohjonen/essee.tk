@@ -17,7 +17,7 @@ const Physics = () => {
             <CalcList />
 
             <Tooltip placement="right" title='Albertti'>
-                <img src={PhysImg} alt='Miten laskea fysiikkaa?' width='500px' />
+                <img src={PhysImg} alt='Miten laskea fysiikkaa?' style={{ width: '500px', maxWidth: '90%' }} />
             </Tooltip>
             <Typography paragraph color='text.secondary'>Fysiikka on helppoa, kunhan vain muistat käyttää Essee.tk:ta.</Typography>
 

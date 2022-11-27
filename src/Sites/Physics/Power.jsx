@@ -20,7 +20,7 @@ const PowerIndex = () => {
             <Typography variant='h4' component='h2' gutterBottom>Mikä teho on ja miten se lasketaan?</Typography>
             <Typography paragraph>Teho on sellainen asia, jonka voi laskea Essee.tk:n laskurin avulla. Se lasketaan siten, että menet osoitteeseen <RouterLink to='/fysiikka/teho'>essee.tk/fysiikka/teho</RouterLink>, ja lasket siellä laskusi.</Typography>
 
-            <img src={tehoImage} alt='Kuva tehosta.' width='450' />
+            <img src={tehoImage} alt='Kuva tehosta.' style={{ width: '500px', maxWidth: '90%' }} />
             <Typography component='p' variant="subtitle1" color='text.secondary' gutterBottom>Tällainen kuva löytyi interwebsien ihmeellistä maailmasta! 😮</Typography>
         </Box>
     )

@@ -20,7 +20,7 @@ const LiftWork = () => {
             <Typography variant='h4' component='h2'>Nostotyö kuntosalilla</Typography>
             <Typography paragraph>Jos et osaa harjoittaa nostotyötä, niin mene nyt salille siitä! Puntilla kun nostat niitä hitsin esineitä, niin kyllä se nostotyö nousee siinä samalla!</Typography>
 
-            <img src={punttis} alt="Nostotyötä tekevä mies" width='500' />
+            <img src={punttis} alt="Nostotyötä tekevä mies" style={{ width: '500px', maxWidth: '90%' }} />
             <Typography variant='subtitle1' color='text.secondary' gutterBottom component='p'>TIESITKÖ, että kuvan mies tekee nostotyötä? 😮🤯</Typography>
         </Box>
     )
