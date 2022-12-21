@@ -18,6 +18,7 @@ import PowerIndex from "./Sites/Physics/Power"
 import Physics from "./Sites/Physics/PhysIndex"
 import PotentialEnergy from "./Sites/Physics/PotentialEnergy"
 import LiftWork from "./Sites/Physics/LiftWork"
+import AI from "./Sites/AI/AI"
 
 const HOTJAR_ID = "3204204"
 
@@ -47,6 +48,10 @@ const App = () => {
               <Route path="potentiaalienergia" element={<PotentialEnergy />} />
               <Route path="nosto" element={<LiftWork />} />
             </Route>  
+
+            <Route path="tekoaly">
+              <Route index element={<AI />} />
+            </Route>
 
             <Route path="lunttilappu" element={<Lunttilappu />} />
 

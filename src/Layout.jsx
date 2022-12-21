@@ -69,6 +69,7 @@ const Navbar = () => {
                         onClose={() => setAnchor(null)}
                     >
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/'>Etusivu</MenuItem>
+                        <MenuItem sx={{ color: 'inherit' }} as={Link} to='/tekoaly'>Tekoäly-chat</MenuItem>
                         <Divider />
 
                         <MenuItem sx={{ color: 'inherit' }} as={Link} to='/kielet'>Kielten essee</MenuItem>
