@@ -10,6 +10,11 @@ const titleRoutings = [
         description: 'Mikä ihme Essee.tk on? No, kärjistetysti se on työkalu, jonka avulla voit tehdä esseitä ilman, että kirjoitat niitä. Kurkkaa lisää!'
     },
     {
+        url: '/tekoaly',
+        title: 'Tekoäly',
+        desciption: 'Essee.tk:n tekoälypalvelu on nyt avoinna! Tule chattaamaan tekoälyn kanssa, ja katso, mihin nykyaikaiset ohjelmistot pystyvät. Ja mikä parasta, tekoälyn testaaminen on täysin ilmaista!'
+    },
+    {
         url: '/kielet',
         title: 'Kielten essee',
         description: 'Essee.tk:n avulla voi myöskin luoda mm. englanninkielisiä esseitä ja kirjoitelmia. Essee.tk on työkalu, jonka avulla voit saada parempia numeroita. Kokeile ilmaiseksi!'
