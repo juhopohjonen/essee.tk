@@ -33,7 +33,6 @@ const AI = () => {
             })
     }
 
-    const trigger = useScrollTrigger()
 
     return (
         <>
@@ -55,9 +54,8 @@ const AI = () => {
 
         </Box>
 
-        <Slide appear={false} direction='up' in={!trigger}>
-            <AppBar position="fixed"  sx={{ bottom: 0, top: 'auto' }}>
-                <Toolbar component='form' onSubmit={(e) => { e.preventDefault(); send() }}>
+            <AppBar position="sticky"  sx={{ bottom: 0, top: 'auto', left: 0, right: 0, width: '100%' }}>
+                <Toolbar component='form' onSubmit={(e) => { e.preventDefault(); send() }} sx={{ width: '100%' }}>
                     <TextField
                         label='Kirjoita viesti'
                         value={messageInput}
@@ -77,7 +75,6 @@ const AI = () => {
                     </Button>
                 </Toolbar>
             </AppBar>
-        </Slide>
 
         </>
     )
