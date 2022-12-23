@@ -24,11 +24,11 @@ const AI = () => {
             })
             .catch(err => {
                 if (err && err.response && err.response.status && err.response.status === 422) {
-                    return setMessages([...messages, yourMessage, new Message(true, 'Valitanpa nyt hieman: en halua vastata sinulle viestiisi. Koitappa kysyä minulta asiallisia asioita, perkele!')])
+                    return setMessages([...messages, yourMessage, new Message(true, 'Valitanpa nyt hieman: en halua vastata sinulle viestiisi. Koitappa kysyä minulta asiallisia asioita!')])
                 } 
                 
                 console.error(err)
-                return setMessages([...messages, yourMessage, new Message(true, 'Heh hehe heh, eipä taida kuulua! Virhe, perkele!')])
+                return setMessages([...messages, yourMessage, new Message(true, 'Heh hehe heh, eipä taida kuulua! Virhe!')])
                 
             })
     }

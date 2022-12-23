@@ -8,7 +8,7 @@ const BASE_API =
         ? 'http://localhost:8000/'
         : 'https://esseetk2.fly.dev/'
 
-const completion_api = BASE_API + 'api/ai/completion/'
+const completion_api = BASE_API + 'api/ai/completion'
 
 const getCompletion = async (query) => {
     const req = await axios.post(completion_api, { query })

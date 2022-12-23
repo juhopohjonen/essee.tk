@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 const BASE_API = 
     isDevelopment 
         ? 'http://localhost:8000/'
-        : 'https://essee-tk.fly.dev/'
+        : 'https://esseetk2.fly.dev/'
 
 console.log(BASE_API)
 
